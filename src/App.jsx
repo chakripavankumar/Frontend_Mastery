@@ -1,28 +1,25 @@
+// src/App.jsx
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Home from "./Pages/Home";
-import ChipsInput from "./components/ChipsInput";
-import AccordianCard from "./components/AccordianCard";
-import ProgressBar from "./components/ProgressBar";
-import ProgressBartwo from "./components/ProgressBar2";
-import TodoList from "./components/TodoList";
-import OTPInput from "./components/OtpBuilder";
-import FileExplorer from "./components/FileExplorer";
+import Home from "./pages/Home";
+import ProblemLayout from "./layout/ProblemLayout";
+import problemRoutes from "./ProblemRoutes.jsx"; 
 
 function App() {
   return (
     <Router>
       <Routes>
+        {/* Home route */}
         <Route path="/" element={<Home />} />
-        <Route path="/otp" element={<OTPInput />} />
-        <Route path="/chips" element={<ChipsInput />} />
-        <Route path="/accordion" element={<AccordianCard />} />
-        <Route path="/progressBar" element={<ProgressBar />} />
-        <Route path="/progressBartwo" element={<ProgressBartwo />} />
-        <Route path="/todolist" element={<TodoList />} />
-        <Route path="/fileExplorer" element={<FileExplorer />} />
+
+        {/* Parent route */}
+        <Route path="/" element={<ProblemLayout />}>
+          {problemRoutes.map((route) => (
+            <Route key={route.path} path={route.path} element={route.element} />
+          ))}
+        </Route>
       </Routes>
     </Router>
   );
 }
 
-export default App;
+export default App; 
