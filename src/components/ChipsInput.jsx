@@ -1,63 +1,66 @@
 import React, { useState } from "react";
 
 const ChipsInput = () => {
-  // State to store all chips (array of objects with id and label)
+  // Store list of chips
   const [chips, setChips] = useState([]);
 
-  // State to manage current input value
+  // Current input field value
   const [inputValue, setInputValue] = useState("");
 
-  // Counter for generating unique IDs for each chip
+  // Auto-incrementing ID for each chip
   const [idCounter, setIdCounter] = useState(0);
 
-  // Handle input change event
-  const handleInput = (event) => {
-    setInputValue(event.target.value);
+  // Update inputValue as user types
+  const handleInput = (e) => {
+    setInputValue(e.target.value);
   };
 
-  // Handle key press events (specifically Enter key)
-  const handleKeyPress = (event) => {
-    if (event.key === "Enter" && inputValue.trim() !== "") {
+  // Handle Enter key to add chip
+  const handleKeyPress = (e) => {
+    const trimmed = inputValue.trim();
+
+    if (e.key === "Enter" && trimmed !== "") {
       const newChip = {
         id: idCounter,
-        label: inputValue.trim(),
+        label: trimmed,
       };
-      setChips([...chips, newChip]); // Add new chip to array
-      setIdCounter(idCounter + 1); // Increment ID counter
-      setInputValue(""); // Clear input field
+
+      setChips((prev) => [...prev, newChip]);
+      setIdCounter((prev) => prev + 1);
+      setInputValue("");
     }
   };
 
-  // Handle chip deletion
-  const handleDeleteChip = (idToDelete) => {
-    setChips(chips.filter((chip) => chip.id !== idToDelete));
+  // Remove a chip by ID
+  const handleDeleteChip = (idToRemove) => {
+    setChips((prev) => prev.filter((chip) => chip.id !== idToRemove));
   };
 
   return (
-    <div className="flex flex-col items-center my-10">
-      <h2 className="text-xl font-semibold mb-4">Chips Input</h2>
+    <div className="flex flex-col items-center my-12">
+      <h2 className="text-2xl font-bold mb-4">Chips Input</h2>
 
-      {/* Input field for adding new chips */}
+      {/* Input box */}
       <input
         type="text"
         value={inputValue}
         onChange={handleInput}
         onKeyDown={handleKeyPress}
-        placeholder="Type a chip and press Enter"
-        className="px-4 py-2 w-64 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+        placeholder="Type and press Enter"
+        className="w-72 px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
       />
 
-      {/* Container for displaying chips */}
-      <div className="flex flex-wrap gap-2 mt-4">
+      {/* Chips container */}
+      <div className="flex flex-wrap gap-2 mt-4 max-w-[300px]">
         {chips.map((chip) => (
           <div
             key={chip.id}
-            className="flex items-center bg-gray-200 px-3 py-1 rounded-full"
+            className="flex items-center bg-gray-200 px-3 py-1 rounded-full shadow-sm  hover:text-red-500"
           >
-            <span className="mr-2">{chip.label}</span>
+            <span className="text-sm mr-2">{chip.label}</span>
             <button
               onClick={() => handleDeleteChip(chip.id)}
-              className="text-gray-500 hover:text-red-500 focus:outline-none"
+              className="text-gray-500 transition-colors focus:outline-none"
             >
               ×
             </button>

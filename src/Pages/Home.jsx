@@ -1,13 +1,20 @@
 // src/pages/Home.jsx
 import { Link } from "react-router-dom";
-import problemRoutes from "../ProblemRoutes"
+import problemRoutes from "../ProblemRoutes";
 
 export default function Home() {
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center gap-4 bg-amber-600">
-      <h1 className="text-3xl font-bold mb-6 text-black">
-        Machine Coding Tracker
-      </h1>
+    <div className="min-h-screen flex flex-col items-center justify-center gap-4 bg-gray-500">
+      <a
+        href="https://github.com/chakripavankumar/Frontend_Mastry"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <h1 className="text-3xl font-bold mb-6 text-black hover:cursor-pointer underline underline-offset-2">
+          Frontend Machine Coding Problems Tracker
+        </h1>
+      </a>
+
       <div className="flex flex-wrap gap-4 justify-center">
         {problemRoutes.map((problem) => (
           <Link
