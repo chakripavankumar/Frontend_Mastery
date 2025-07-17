@@ -1,18 +1,38 @@
-# 🚀 Frontend Interview Questions 🚀
+# 🚀 Frontend Machine Coding Interview Tracker
 
-This repository is a curated collection of frontend coding interview questions.
-📝 Description
-This project was developed to provide a comprehensive resource for anyone preparing for frontend development interviews. It covers a wide range of topics and aims to be a one-stop-shop for sharpening your coding skills.
-💻 Tech Stack
-React
-JavaScript
-✨ Features
-❓ A wide variety of interview questions.
-💡 Solutions and explanations for each question.
-🔄 Regularly updated with new questions.
-🚀 Getting Started
-Clone the repository: git clone <https://github.com/your-username/your-repository.git>
-Navigate to the project directory: cd your-repository
-Open the index.html file in your browser to view the questions.
-🙌 How to Contribute
-Contributions are welcome! If you'd like to add new questions, improve existing ones, or fix any issues, please feel free to submit a pull request.
+Welcome to the ultimate collection of **Frontend Coding Interview Questions**!  
+This project is designed to help developers crack their frontend interviews with **confidence** by practicing real-world, hands-on coding problems.
+
+---
+
+## 📝 Description
+
+This repository is a **curated resource** for frontend interview preparation. It includes a variety of machine coding questions along with intuitive solutions and explanations. Whether you're brushing up your skills or preparing for your next job interview, this project aims to be your **go-to reference**.
+
+---
+
+## 💻 Tech Stack
+
+- ⚛️ React
+- 📜 JavaScript
+- 💨 Tailwind CSS _(optional for styling, if you're using it)_
+
+---
+
+## ✨ Features
+
+- ❓ A wide variety of **real-world frontend interview questions**
+- 💡 Clean, **interview-level solutions** with detailed explanations
+- 🔁 **Regular updates** with new questions and UI challenges
+- 📂 Organized folder structure for each problem
+- 📎 Easy-to-follow UI + Code structure for each component
+
+---
+
+## 🚀 Getting Started
+
+1. **Clone the repository**
+
+   ```bash
+   git clone https://github.com/your-username/frontend-machine-coding.git
+   ```
